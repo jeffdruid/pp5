@@ -20,6 +20,21 @@ function PostFeed() {
       created_at: '1 hour ago',
       likes: 10,
     },
+    {
+      id: 3,
+      author: 'Jane',
+      content: 'Feeling grateful for the little things in life.',
+      mood: '😊',
+      created_at: '2 hours ago',
+      likes: 7,
+    },
+    { id: 4,
+      author: 'Anonymous',
+      content: 'Feeling lost...',
+      mood: '😢',
+      created_at: '3 hours ago',
+      likes: 3,
+    },
   ];
 
   return (

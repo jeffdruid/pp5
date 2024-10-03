@@ -37,7 +37,7 @@ main {
 /* Footer Styles */
 .footer {
   text-align: center;
-  padding: 1rem;
+  padding: .75rem;
   background-color: #f0f4f8;
   position: fixed;
   bottom: 0;
@@ -47,6 +47,42 @@ main {
 .footer p {
   margin: 0;
   color: #555;
+  font-size: .5rem;
+}
+
+.footer-links {
+  margin-bottom: 0.75rem;
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  margin: 0 0.5rem;
+  color: #0077b6;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer-link:hover {
+  color: #005f8a;
+}
+
+
+/* Footer Modal Specific Styles */
+.footer-modal {
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.footer-modal h2 {
+  margin-top: 0;
+}
+
+.footer-modal p {
+  font-size: 1rem;
+  margin: 1rem 0;
 }
 
 /* PostFeed Styles */

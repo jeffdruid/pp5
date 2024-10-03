@@ -2,6 +2,8 @@ import React from 'react';
 
 function Post({ post }) {
   // The component returns JSX to render the post
+  const displayAuthor = post.is_anonymous ? 'Anonymous' : post.author;
+
   return (
     <div className="post-card">
       {/* Display the mood emoji */}
@@ -13,7 +15,7 @@ function Post({ post }) {
         
         {/* Post metadata: author and timestamp */}
         <p className="post-meta">
-          - {post.author} &nbsp; | &nbsp; {post.created_at}
+          - {displayAuthor} &nbsp; | &nbsp; {post.created_at}
         </p>
         
         {/* Like button showing the number of likes */}

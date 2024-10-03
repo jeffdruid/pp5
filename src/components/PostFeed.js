@@ -6,11 +6,12 @@ function PostFeed() {
   const posts = [
     {
       id: 1,
-      author: 'Anonymous',
+      author: 'Alex',
       content: "I've been feeling a bit overwhelmed lately.",
       mood: '😟',
       created_at: '10 minutes ago',
       likes: 5,
+      is_anonymous: true,
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ function PostFeed() {
       mood: '😊',
       created_at: '1 hour ago',
       likes: 10,
+      is_anonymous: false,
     },
     {
       id: 3,
@@ -27,20 +29,23 @@ function PostFeed() {
       mood: '😊',
       created_at: '2 hours ago',
       likes: 7,
+      is_anonymous: false,
     },
-    { id: 4,
-      author: 'Anonymous',
+    {
+      id: 4,
+      author: 'John',
       content: 'Feeling lost...',
       mood: '😢',
       created_at: '3 hours ago',
       likes: 3,
+      is_anonymous: true,
     },
   ];
 
   return (
     <div className="post-feed">
       {posts.map((post) => (
-        // map through the posts array and render a Post component for each post
+        // Map through the posts array and render a Post component for each post
         <Post key={post.id} post={post} />
       ))}
     </div>

@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f0f4f8;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.navbar div button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #0077b6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navbar div button:hover {
+  background-color: #005f8a;
+}
+
+main {
+  padding: 1rem;
+}

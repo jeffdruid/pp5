@@ -175,3 +175,59 @@ main {
   margin-top: 1rem;
   text-align: center;
 }
+
+.modal-content textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.anonymous-option {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.anonymous-option label {
+  margin-left: 0.5rem;
+  font-weight: normal;
+}
+
+/* Mood Selection */
+.mood-selection {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mood-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.mood-button:hover {
+  background-color: #f0f0f0;
+}
+
+.mood-button.selected {
+  background-color: #e0e0e0;
+}
+
+.create-post-button {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #0077b6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-post-button:hover {
+  background-color: #005f8a;
+}

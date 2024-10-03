@@ -231,3 +231,17 @@ main {
 .create-post-button:hover {
   background-color: #005f8a;
 }
+
+/* Welcome Message Styles */
+.welcome-message {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.welcome-message h2 {
+  margin-bottom: 1rem;
+}
+
+.welcome-message p {
+  margin: 0.5rem 0;
+}

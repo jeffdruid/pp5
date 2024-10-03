@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
 import './App.css';
+import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
         <h2>Welcome to How Are You Really</h2>
         <p>A discreet platform for sharing wellness stories.</p>
       </main>
+      <Footer />
     </div>
   );
 }

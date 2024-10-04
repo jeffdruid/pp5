@@ -313,6 +313,11 @@ main {
   color: #555;
 }
 
+.delete-button {
+  float: right;
+  margin: .5rem;
+}
+
 .post-actions .delete-button:hover {
   color: #000;
 }

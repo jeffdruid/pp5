@@ -28,7 +28,7 @@ function Post({ post, deletePost }) {
         {/* Like button showing the number of likes */}
         <button className="like-button">❤️ {post.likes}</button>
         <button className="delete-button" onClick={handleDelete}>
-          🗑️ Delete
+          🗑️
         </button>
       </div>
     </div>

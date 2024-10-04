@@ -313,7 +313,8 @@ main {
   color: #555;
 }
 
-.delete-button {
+.delete-button,
+.edit-button {
   float: right;
   margin: .5rem;
 }

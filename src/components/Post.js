@@ -13,6 +13,7 @@ function Post({ post, deletePost }) {
 
   return (
     <div className="post-card">
+      <button className="more-button" style={{ float: 'right' }}>...</button>
       {/* Display the mood emoji */}
       <div className="post-mood">{post.mood}</div>
       
@@ -30,6 +31,7 @@ function Post({ post, deletePost }) {
         <button className="delete-button" onClick={handleDelete}>
           🗑️
         </button>
+        <button className="edit-button">✏️</button>
       </div>
     </div>
   );

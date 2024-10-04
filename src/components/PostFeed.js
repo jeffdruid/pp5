@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Post from './Post';
 
 function PostFeed() {
-  // data for testing
-  const posts = [
+  // Move posts data into state
+  const [posts, setPosts] = useState([
     {
       id: 1,
       author: 'Alex',
@@ -40,13 +40,20 @@ function PostFeed() {
       likes: 3,
       is_anonymous: true,
     },
-  ];
+  ]);
+
+  // Function to delete a post by id
+  const deletePost = (id) => {
+    // Filter out the post with the given id
+    const updatedPosts = posts.filter((post) => post.id !== id);
+    setPosts(updatedPosts);
+  };
 
   return (
     <div className="post-feed">
       {posts.map((post) => (
-        // Map through the posts array and render a Post component for each post
-        <Post key={post.id} post={post} />
+        // Pass the deletePost function to each Post component
+        <Post key={post.id} post={post} deletePost={deletePost} />
       ))}
     </div>
   );

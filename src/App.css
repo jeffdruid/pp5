@@ -284,3 +284,35 @@ main {
 .welcome-message p {
   margin: 0.5rem 0;
 }
+
+/* Post Actions Styles */
+.post-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.post-actions .like-button,
+.post-actions .delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.post-actions .like-button {
+  color: #ff5252;
+}
+
+.post-actions .like-button:hover {
+  color: #ff1744;
+}
+
+.post-actions .delete-button {
+  color: #555;
+}
+
+.post-actions .delete-button:hover {
+  color: #000;
+}

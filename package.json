@@ -17,8 +17,9 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve": "node server.js",
     "heroku-postbuild": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -40,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

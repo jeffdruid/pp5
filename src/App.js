@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import PostFeed from './components/PostFeed';
+import PostModal from './components/PostModal';
+import WelcomeMessage from './components/WelcomeMessage';
 
 function App() {
+  const [showPostModal, setShowPostModal] = useState(false);
+
+  const openPostModal = () => {
+    setShowPostModal(true);
+  };
+
+  const closePostModal = () => {
+    setShowPostModal(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1>Test 2</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <main>
+        <WelcomeMessage />
+
+        <button className="create-post-button" onClick={openPostModal}>
+          Create Post
+        </button>
+        <PostFeed />
+      </main>
+      {showPostModal && <PostModal onClose={closePostModal} />}
+      <Footer />
     </div>
   );
 }

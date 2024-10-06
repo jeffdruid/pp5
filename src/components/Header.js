@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Navbar, Nav, Button, Container } from 'react-bootstrap';
+import { FaHeart } from 'react-icons/fa'; // Example icon
 import AuthModal from './AuthModal';
 
 function Header() {
@@ -24,16 +26,30 @@ function Header() {
   };
 
   return (
-    <header>
-      <nav className="navbar">
-        <h1>How Are You Really</h1>
-        <div>
-          <button onClick={() => openModal('login')}>Login</button>
-          <button onClick={() => openModal('signup')}>Sign Up</button>
-        </div>
-      </nav>
+    <>
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">
+            <FaHeart className="me-2 text-danger" />
+            How Are You Really
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
+              <Button variant="primary" className="me-2" onClick={() => openModal('login')}>
+                Login
+              </Button>
+              <Button variant="outline-primary" onClick={() => openModal('signup')}>
+                Sign Up
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      {/* Auth Modal */}
       {showModal && <AuthModal type={modalType} onClose={closeModal} />}
-    </header>
+    </>
   );
 }
 

@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="md">
         <Container>
           <Navbar.Brand href="#home">
             <FaHeart className="me-2 text-danger" />

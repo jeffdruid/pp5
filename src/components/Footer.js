@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Nav, Navbar, Modal } from 'react-bootstrap';
 import FooterModal from './FooterModal';
 
 function Footer() {
@@ -18,27 +19,32 @@ function Footer() {
   };
 
   return (
-    <footer className="footer">
-      <div className="footer-links">
-        <span className="footer-link" onClick={() => openModal('about')}>
-          About
-        </span>
-        |
-        <span className="footer-link" onClick={() => openModal('contact')}>
-          Contact
-        </span>
-        |
-        <span className="footer-link" onClick={() => openModal('privacy')}>
-          Privacy Policy
-        </span>
-        |
-        <span className="footer-link" onClick={() => openModal('terms')}>
-          Terms
-        </span>
+    <>
+      <Navbar bg="light" variant="light" className="justify-content-center">
+        <Nav>
+          <Nav.Link href="#" onClick={() => openModal('about')}>
+            About
+          </Nav.Link>
+          <Nav.Link href="#" onClick={() => openModal('contact')}>
+            Contact
+          </Nav.Link>
+          <Nav.Link href="#" onClick={() => openModal('privacy')}>
+            Privacy Policy
+          </Nav.Link>
+          <Nav.Link href="#" onClick={() => openModal('terms')}>
+            Terms
+          </Nav.Link>
+        </Nav>
+      </Navbar>
+      <div className="bg-light text-center py-2">
+        <Container>
+          <p className="mb-0">&copy; 2023 How Are You Really</p>
+        </Container>
       </div>
-      <p>&copy; 2023 How Are You Really</p>
+
+      {/* Footer Modal */}
       {showModal && <FooterModal type={modalType} onClose={closeModal} />}
-    </footer>
+    </>
   );
 }
 

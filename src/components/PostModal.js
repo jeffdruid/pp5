@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Form, ToggleButtonGroup, ToggleButton, ButtonGroup } from 'react-bootstrap';
+import { Modal, Button, Form, ToggleButton, ButtonGroup } from 'react-bootstrap';
 import { FaSmile, FaFrown, FaMeh, FaGrinStars, FaRegLightbulb } from 'react-icons/fa';
 
 function PostModal({ show, onClose }) {

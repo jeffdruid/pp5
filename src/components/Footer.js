@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Nav, Navbar, Modal } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import FooterModal from './FooterModal';
 
 function Footer() {

@@ -3,7 +3,9 @@ import Header from './components/Header';
 import WelcomeMessage from './components/WelcomeMessage';
 import PostFeed from './components/PostFeed';
 import Footer from './components/Footer';
-import PostModal from './components/PostModal'; // Import PostModal
+import PostModal from './components/PostModal';
+// import app.css
+import './App.css';
 
 function App() {
   // State to control PostModal visibility

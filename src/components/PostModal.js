@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Modal, Button, Form, ToggleButtonGroup, ToggleButton, ButtonGroup } from 'react-bootstrap';
+import { FaSmile, FaFrown, FaMeh, FaGrinStars, FaRegLightbulb } from 'react-icons/fa';
 
-function PostModal({ onClose }) {
+function PostModal({ show, onClose }) {
   // State variables for form inputs
   const [mood, setMood] = useState('');
   const [content, setContent] = useState('');
@@ -12,60 +14,73 @@ function PostModal({ onClose }) {
     // Add logic to handle post creation
     // For now, we'll just log the input values
     console.log('New Post:', { mood, content, isAnonymous });
+    // Close the modal after submission
+    onClose();
   };
 
-  // Array of mood options
+  // Array of mood options with icons
   const moodOptions = [
-    { label: 'Happy', emoji: '😊' },
-    { label: 'Sad', emoji: '😢' },
-    { label: 'Anxious', emoji: '😟' },
-    { label: 'Excited', emoji: '😃' },
-    { label: 'Thoughtful', emoji: '🤔' },
+    { label: 'Happy', emoji: <FaSmile />, value: 'happy' },
+    { label: 'Sad', emoji: <FaFrown />, value: 'sad' },
+    { label: 'Anxious', emoji: <FaMeh />, value: 'anxious' },
+    { label: 'Excited', emoji: <FaGrinStars />, value: 'excited' },
+    { label: 'Thoughtful', emoji: <FaRegLightbulb />, value: 'thoughtful' },
   ];
-
-  // JSX to render the modal
+  
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="close-button" onClick={onClose}>
-          &times;
-        </button>
-        <h2>Share How You're Really Feeling</h2>
-        <form onSubmit={handleSubmit}>
-          <label>Mood:</label>
-          <div className="mood-selection">
-            {moodOptions.map((option) => (
-              <button
-                type="button"
-                key={option.label}
-                className={`mood-button ${mood === option.emoji ? 'selected' : ''}`}
-                onClick={() => setMood(option.emoji)}
-              >
-                {option.emoji}
-              </button>
-            ))}
-          </div>
-          <label htmlFor="content">What's on your mind?</label>
-          <textarea
-            id="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            rows="4"
-            required
-          ></textarea>
-          <div className="anonymous-option">
-            <input
+    <Modal show={show} onHide={onClose} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Share How You're Really Feeling</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form onSubmit={handleSubmit}>
+          {/* Mood Selection */}
+          <Form.Group>
+            <Form.Label>Mood</Form.Label>
+            <ButtonGroup aria-label="Mood selection" className="mb-3 d-flex justify-content-between">
+              {moodOptions.map((option) => (
+                <ToggleButton
+                  key={option.value}
+                  id={`mood-${option.value}`}
+                  type="radio"
+                  variant="outline-primary"
+                  name="mood"
+                  value={option.value}
+                  checked={mood === option.value}
+                  onChange={(e) => setMood(e.currentTarget.value)}
+                >
+                  {option.emoji}
+                </ToggleButton>
+              ))}
+            </ButtonGroup>
+          </Form.Group>
+          {/* Content Input */}
+          <Form.Group controlId="formContent">
+            <Form.Label>What's on your mind?</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={4}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
+            />
+          </Form.Group>
+          {/* Anonymous Option */}
+          <Form.Group controlId="formAnonymous" className="mt-3">
+            <Form.Check
               type="checkbox"
-              id="isAnonymous"
+              label="Post Anonymously"
               checked={isAnonymous}
               onChange={(e) => setIsAnonymous(e.target.checked)}
             />
-            <label htmlFor="isAnonymous">Post Anonymously</label>
-          </div>
-          <button type="submit">Post</button>
-        </form>
-      </div>
-    </div>
+          </Form.Group>
+          {/* Submit Button */}
+          <Button variant="primary" type="submit" className="mt-4" block>
+            Post
+          </Button>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 }
 

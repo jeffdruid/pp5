@@ -36,7 +36,7 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Button variant="primary" className="me-2" onClick={() => openModal('login')}>
+              <Button variant="primary" className="me-0" onClick={() => openModal('login')}>
                 Login
               </Button>
               <Button variant="outline-primary" onClick={() => openModal('signup')}>

@@ -1,36 +1,44 @@
 import React, { useState } from 'react';
-import './App.css';
 import Header from './components/Header';
-import Footer from './components/Footer';
-import PostFeed from './components/PostFeed';
-import PostModal from './components/PostModal';
 import WelcomeMessage from './components/WelcomeMessage';
+import PostFeed from './components/PostFeed';
+import Footer from './components/Footer';
+import PostModal from './components/PostModal'; // Import PostModal
 
 function App() {
+  // State to control PostModal visibility
   const [showPostModal, setShowPostModal] = useState(false);
 
-  const openPostModal = () => {
+  // State to hold posts
+  const [posts, setPosts] = useState([
+    // Your initial posts data here
+  ]);
+
+  // Function to open PostModal
+  const handleCreatePost = () => {
     setShowPostModal(true);
   };
 
-  const closePostModal = () => {
+  // Function to close PostModal
+  const handleClosePostModal = () => {
     setShowPostModal(false);
   };
 
-  return (
-    <div>
-      <Header />
-      <main>
-        <WelcomeMessage />
+  // Function to add a new post
+  const addPost = (newPost) => {
+    setPosts([newPost, ...posts]);
+  };
 
-        <button className="create-post-button" onClick={openPostModal}>
-          Create Post
-        </button>
-        <PostFeed />
-      </main>
-      {showPostModal && <PostModal onClose={closePostModal} />}
+  return (
+    <>
+      <Header />
+      <WelcomeMessage onCreatePost={handleCreatePost} />
+      <PostFeed posts={posts} setPosts={setPosts} />
       <Footer />
-    </div>
+
+      {/* Render PostModal */}
+      <PostModal show={showPostModal} onClose={handleClosePostModal} addPost={addPost} />
+    </>
   );
 }
 

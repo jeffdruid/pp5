@@ -3,7 +3,7 @@ import { Card, Button, Dropdown } from 'react-bootstrap';
 import { FaHeart, FaTrash, FaEdit, FaEllipsisV } from 'react-icons/fa';
 import { formatDistanceToNow } from 'date-fns';
 
-function Post({ post, deletePost }) {
+function Post({ post, deletePost, handleEditPost }) {
   // State for managing likes
   const [likes, setLikes] = useState(post.likes);
 
@@ -18,10 +18,9 @@ function Post({ post, deletePost }) {
     }
   };
 
-  // Handle edit button click (functionality to be implemented)
+  // Handle edit button click
   const handleEdit = () => {
-    // Implement edit functionality
-    console.log('Edit post:', post.id);
+    handleEditPost(post);
   };
 
   // Handle like button click

@@ -1,34 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form, ToggleButton, ButtonGroup } from 'react-bootstrap';
 import { FaSmile, FaFrown, FaMeh, FaGrinStars, FaRegLightbulb } from 'react-icons/fa';
 
-function PostModal({ show, onClose, addPost, userData }) {
+function PostModal({ show, onClose, addPost, userData, postToEdit, updatePost }) {
   // State variables for form inputs
   const [mood, setMood] = useState('');
   const [content, setContent] = useState('');
   const [isAnonymous, setIsAnonymous] = useState(false);
 
+  // Determine if we're editing or creating a post
+  const isEditing = !!postToEdit;
+
+  // Load post data into state when editing
+  useEffect(() => {
+    if (isEditing) {
+      setMood(postToEdit.mood);
+      setContent(postToEdit.content);
+      setIsAnonymous(postToEdit.is_anonymous);
+    } else {
+      // Reset form for creating a new post
+      setMood('');
+      setContent('');
+      setIsAnonymous(false);
+    }
+  }, [isEditing, postToEdit]);
+
   // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Create a new post object using userData
-    const newPost = {
-      id: Date.now(), // Use a unique ID generator in a real app
-      author: isAnonymous ? 'Anonymous' : userData.username,
-      content,
-      mood,
-      created_at: new Date().toISOString(),
-      likes: 0,
-      is_anonymous: isAnonymous,
-    };
-    // Add the new post to the posts list
-    addPost(newPost);
+
+    if (isEditing) {
+      // Create updated post object
+      const updatedPost = {
+        ...postToEdit,
+        mood,
+        content,
+        is_anonymous: isAnonymous,
+        // Optionally update the timestamp
+        // created_at: new Date().toISOString(),
+      };
+      updatePost(updatedPost);
+    } else {
+      // Create a new post object
+      const newPost = {
+        id: Date.now(), // Use a unique ID generator in a real app
+        author: isAnonymous ? 'Anonymous' : userData.username,
+        content,
+        mood,
+        created_at: new Date().toISOString(),
+        likes: 0,
+        is_anonymous: isAnonymous,
+      };
+      addPost(newPost);
+    }
+
     // Close the modal after submission
     onClose();
-    // Reset form fields
-    setMood('');
-    setContent('');
-    setIsAnonymous(false);
   };
 
   // Array of mood options with icons
@@ -39,11 +66,11 @@ function PostModal({ show, onClose, addPost, userData }) {
     { label: 'Excited', emoji: <FaGrinStars />, value: 'excited' },
     { label: 'Thoughtful', emoji: <FaRegLightbulb />, value: 'thoughtful' },
   ];
-  
+
   return (
     <Modal show={show} onHide={onClose} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Share How You're Really Feeling</Modal.Title>
+        <Modal.Title>{isEditing ? 'Edit Your Post' : "Share How You're Really Feeling"}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
@@ -92,7 +119,7 @@ function PostModal({ show, onClose, addPost, userData }) {
           </Form.Group>
           {/* Submit Button */}
           <Button variant="primary" type="submit" className="mt-4" block>
-            Post
+            {isEditing ? 'Save Changes' : 'Post'}
           </Button>
         </Form>
       </Modal.Body>

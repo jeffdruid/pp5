@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button, Form, ToggleButton, ButtonGroup } from 'react-bootstrap';
 import { FaSmile, FaFrown, FaMeh, FaGrinStars, FaRegLightbulb } from 'react-icons/fa';
 
-function PostModal({ show, onClose }) {
+function PostModal({ show, onClose, addPost, userData }) {
   // State variables for form inputs
   const [mood, setMood] = useState('');
   const [content, setContent] = useState('');
@@ -11,11 +11,24 @@ function PostModal({ show, onClose }) {
   // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add logic to handle post creation
-    // For now, we'll just log the input values
-    console.log('New Post:', { mood, content, isAnonymous });
+    // Create a new post object using userData
+    const newPost = {
+      id: Date.now(), // Use a unique ID generator in a real app
+      author: isAnonymous ? 'Anonymous' : userData.username,
+      content,
+      mood,
+      created_at: new Date().toISOString(),
+      likes: 0,
+      is_anonymous: isAnonymous,
+    };
+    // Add the new post to the posts list
+    addPost(newPost);
     // Close the modal after submission
     onClose();
+    // Reset form fields
+    setMood('');
+    setContent('');
+    setIsAnonymous(false);
   };
 
   // Array of mood options with icons
@@ -37,7 +50,10 @@ function PostModal({ show, onClose }) {
           {/* Mood Selection */}
           <Form.Group>
             <Form.Label>Mood</Form.Label>
-            <ButtonGroup aria-label="Mood selection" className="mb-3 d-flex justify-content-between">
+            <ButtonGroup
+              aria-label="Mood selection"
+              className="mb-3 d-flex justify-content-between"
+            >
               {moodOptions.map((option) => (
                 <ToggleButton
                   key={option.value}

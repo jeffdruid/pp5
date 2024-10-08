@@ -4,16 +4,12 @@ import WelcomeMessage from './components/WelcomeMessage';
 import PostFeed from './components/PostFeed';
 import Footer from './components/Footer';
 import PostModal from './components/PostModal';
-import AuthModal from './components/AuthModal'; // Import AuthModal
+import AuthModal from './components/AuthModal';
 import './App.css';
 
 function App() {
   // State to control PostModal visibility
   const [showPostModal, setShowPostModal] = useState(false);
-
-  // State to control AuthModal visibility and type
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authModalType, setAuthModalType] = useState('login'); // 'login' or 'signup'
 
   // State to hold posts
   const [posts, setPosts] = useState([
@@ -21,32 +17,39 @@ function App() {
   ]);
 
   // **New states for authentication**
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate user not logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulate user logged in
   const [userData, setUserData] = useState({
-    username: '', // Empty by default
-    email: '',
-    bio: '',
+    username: 'JohnDoe', // Replace with actual user data after authentication
+    email: 'john.doe@example.com',
+    bio: 'Just a regular user.',
   });
 
   // State to track if user attempted to create a post before logging in
   const [pendingAction, setPendingAction] = useState(false);
 
-  // Function to open PostModal
+  // **New state for editing posts**
+  const [postToEdit, setPostToEdit] = useState(null);
+
+  // Function to open PostModal for creating a post
   const handleCreatePost = () => {
     if (isLoggedIn) {
+      setPostToEdit(null); // Ensure no post is being edited
       setShowPostModal(true);
     } else {
-      // Open the AuthModal in 'login' mode
-      setAuthModalType('login');
-      setShowAuthModal(true);
-      // Set pending action
-      setPendingAction('createPost');
+      // Handle authentication flow
     }
+  };
+
+  // Function to open PostModal for editing a post
+  const handleEditPost = (post) => {
+    setPostToEdit(post);
+    setShowPostModal(true);
   };
 
   // Function to close PostModal
   const handleClosePostModal = () => {
     setShowPostModal(false);
+    setPostToEdit(null);
   };
 
   // Function to add a new post
@@ -54,54 +57,28 @@ function App() {
     setPosts([newPost, ...posts]);
   };
 
-  // Function to handle successful login
-  const handleLogin = (user) => {
-    setIsLoggedIn(true);
-    setUserData(user);
-    setShowAuthModal(false);
-
-    // Check if there was a pending action
-    if (pendingAction === 'createPost') {
-      setShowPostModal(true);
-      setPendingAction(null);
-    }
+  // Function to update an existing post
+  const updatePost = (updatedPost) => {
+    const updatedPosts = posts.map((post) =>
+      post.id === updatedPost.id ? updatedPost : post
+    );
+    setPosts(updatedPosts);
   };
 
-  // Function to handle logout
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUserData({
-      username: '',
-      email: '',
-      bio: '',
-    });
-  };
-
-  // Function to close AuthModal or switch forms
-  const handleCloseAuthModal = (type) => {
-    if (type === 'login' || type === 'signup') {
-      // Switch to the other form
-      setAuthModalType(type);
-    } else {
-      // Close the modal
-      setShowAuthModal(false);
-    }
-  };
+  // ... Authentication functions (handleLogin, handleLogout, etc.)
 
   return (
     <>
       <Header
         isLoggedIn={isLoggedIn}
-        onLogin={handleLogin}
-        onLogout={handleLogout}
-        userData={userData}
-        openAuthModal={() => {
-          setAuthModalType('login');
-          setShowAuthModal(true);
-        }}
+        // ... other props
       />
       <WelcomeMessage onCreatePost={handleCreatePost} />
-      <PostFeed posts={posts} setPosts={setPosts} />
+      <PostFeed
+        posts={posts}
+        setPosts={setPosts}
+        handleEditPost={handleEditPost} // Pass the function to PostFeed
+      />
       <Footer />
 
       {/* Render PostModal */}
@@ -109,17 +86,12 @@ function App() {
         show={showPostModal}
         onClose={handleClosePostModal}
         addPost={addPost}
+        updatePost={updatePost}
         userData={userData}
+        postToEdit={postToEdit} // Pass the post to edit
       />
 
-      {/* Render AuthModal */}
-      {showAuthModal && (
-        <AuthModal
-          type={authModalType}
-          onClose={handleCloseAuthModal}
-          onLogin={handleLogin}
-        />
-      )}
+      {/* Render AuthModal if needed */}
     </>
   );
 }

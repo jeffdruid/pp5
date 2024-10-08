@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-function AuthModal({ type, onClose }) {
+function AuthModal({ type, onClose, onLogin }) {
   // State variables for form inputs
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -11,11 +11,26 @@ function AuthModal({ type, onClose }) {
   // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add logic to handle authentication
-    // For now, we log the input values
-    console.log('Form submitted:', { username, email, password, confirmPassword });
-    // Close the modal after submission (optional)
-    // onClose();
+    // Simulate authentication
+    if (type === 'login') {
+      // Simulate successful login
+      const user = {
+        username: 'JohnDoe',
+        email,
+        bio: 'Just a regular user.',
+      };
+      onLogin(user);
+    } else {
+      // Simulate successful signup and login
+      const user = {
+        username,
+        email,
+        bio: '',
+      };
+      onLogin(user);
+    }
+    // Close the modal
+    onClose();
   };
 
   return (

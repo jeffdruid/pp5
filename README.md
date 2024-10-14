@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# [Blog - Wellness](https://pp5-jeff-d4728660c25d.herokuapp.com/#home)
+<a href="https://pp5-jeff-d4728660c25d.herokuapp.com/">
+  <img src="banner.webp" alt="Blog banner" width="100%">
+</a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
 
-In the project directory, you can run:
+View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 
-### `npm start`
+## Table of Contents
+- TODO
+1. [Introduction](#introduction)
+2. [Technologies Used](#technologies-used)
+   - [Django](#django)
+   - [SQLite](#sqlite)
+   - [Bootstrap](#bootstrap)
+   - [jQuery](#jquery)
+   - [Font Awesome](#font-awesome)
+   - [Heroku](#heroku)
+3. [User Stories](#user-stories)
+   - [User Story 1: User Authentication](#user-story-1-user-authentication)
+4. [Wireframes](#wireframes)
+   - [Site Map](#site-map)
+   - [Database Schema](#database-schema)
+5. [Features](#features)
+   - [User Authentication](#user-authentication)
+6. [MoSCoW Prioritization](#moscow-prioritization)
+   - [Must Have](#must-have)
+   - [Should Have](#should-have)
+   - [Could Have](#could-have)
+   - [Won't Have (for now)](#wont-have-for-now)
+6. [GitHub Projects, Milestones, and Issues](#github-projects-milestones-and-issues)
+   - [GitHub Projects](#github-projects)
+   - [Milestones](#milestones)
+   - [Issues](#issues)
+6. [Troubleshooting](#troubleshooting)
+   - [Password Reset](#password-reset)
+7. [Testing](#testing)
+8. [Bugs](#bugs)
+   - [Fixed Bugs](#fixed-bugs)
+9. [UI Improvements](#ui-improvements)
+10. [Future Improvements](#future-improvements)
+11. [Setup](#setup)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Usage](#usage)
+12. [Deployment](#deployment)
+    - [Cloning & Forking](#cloning--forking)
+    - [Local Deployment](#local-deployment)
+    - [Remote Deployment (Heroku)](#remote-deployment-heroku)
+13. [Credits](#credits)
+    - [Source Code](#source-code)
+    - [Useful links](#useful-links)
+    - [Tools](#tools)
+    - [Resources](#resources)
+14. [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Wireframes:
 
-### `npm test`
+#### Site Map
+- The site map visually outlines the structure of the website, showing the relationships between different pages and sections. It provides an overview of how users will navigate through the platform, ensuring an intuitive user experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Database Schema
+- The database schema diagram illustrates the data model used in the application. It includes the tables, their relationships, and key fields, ensuring data integrity and efficient data management.
 
-### `npm run build`
+## MoSCoW Prioritization
+- The MoSCoW method is used to prioritize features based on their importance and urgency. Features are categorized into Must Have, Should Have, Could Have, and Won't Have for the current version of the application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## GitHub Projects, Milestones, and Issues
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### GitHub Projects
+GitHub Projects was used to manage and organize tasks. It provides a Kanban-style board that allows to visualize our workflow and track the progress of tasks.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Milestones
+Milestones are used to track the progress of significant phases in our project. Each milestone includes a set of issues that need to be completed to achieve the milestone goal.
 
-### `npm run eject`
+### Issues
+Issues are used to track tasks, enhancements, and bugs for the project. Each issue is assigned to a team member and linked to a milestone.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For more details, visit the [GitHub Project]() page.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Testing
+All testing was done manually and automated using Django's built-in testing framework. The application was tested for functionality, user experience, and security. Test cases were created to cover user stories and edge cases, ensuring the application works as expected.
+   - You can view all the tests [here](README/TESTING.md)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Bugs
+## Setup
 
-## Learn More
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation
 
-### Code Splitting
+### Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Deployment
 
-### Analyzing the Bundle Size
+### Cloning & Forking
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Local Deployment
 
-### Making a Progressive Web App
+### Remote Deployment (Heroku)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Credits
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Useful Links
 
-### Deployment
+### Tools
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Resources
 
-### `npm run build` fails to minify
+### License
+- This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**[Back to top](#table-of-contents)**

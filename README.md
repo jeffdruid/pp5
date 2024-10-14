@@ -1,4 +1,4 @@
-# [Blog - How Are You Really](https://pp5-jeff-d4728660c25d.herokuapp.com/#home)
+# [How Are You Really - Full Stack Web Application](https://pp5-jeff-d4728660c25d.herokuapp.com/#home)
 <a href="https://pp5-jeff-d4728660c25d.herokuapp.com/">
   <img src="banner.webp" alt="Blog banner" width="100%">
 </a>
@@ -88,7 +88,7 @@ View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 
 #### Site Map
 - The site map visually outlines the structure of the website, showing the relationships between different pages and sections. It provides an overview of how users will navigate through the platform, ensuring an intuitive user experience.
-
+- ![alt text](site-map.png)
 #### Database Schema
 - The database schema diagram illustrates the data model used in the application. It includes the tables, their relationships, and key fields, ensuring data integrity and efficient data management.
 
@@ -97,6 +97,7 @@ TODO - add Following
 
 
 ## Features
+- TODO - add screenshots
 ### 1. User Authentication
 - **Sign Up and Login**: Users can create an account or log in using modals.
 - **Authentication State Management**: Simulated authentication state for demonstration purposes.
@@ -159,7 +160,8 @@ User Profiles
 
 - Input Validation: Validate user inputs to prevent malicious data entry.
 - Secure Data Transmission: Use HTTPS to encrypt data between the client and server.
-Should Have
+
+### Should Have
 - Important features that add significant value but are not critical for the initial launch.
 
 #### Anonymity Enhancements
@@ -236,6 +238,7 @@ Features that are out of scope for the current project phase but can be consider
 - Badges and Achievements: Reward users for milestones like number of posts or likes.
 - Leaderboards: Display top contributors based on engagement metrics.
 
+
 ## GitHub Projects, Milestones, and Issues
 
 ### GitHub Projects
@@ -248,6 +251,54 @@ Milestones are used to track the progress of significant phases in our project. 
 Issues are used to track tasks, enhancements, and bugs for the project. Each issue is assigned to a team member and linked to a milestone.
 
 For more details, visit the [GitHub Project](https://github.com/users/jeffdruid/projects/4) page.
+
+### Kanban Board
+
+| **Milestone**                | **Issue**                                   | **Priority** | **Description**                                               |
+|------------------------------|---------------------------------------------|--------------|---------------------------------------------------------------|
+| **1. User Authentication**   | Implement Sign Up functionality             | Must Have    | Allow users to create a new account with username and email.  |
+|                              | Implement Login/Logout functionality        | Must Have    | Enable users to log in and out securely.                      |
+|                              | Implement Password Reset feature            | Must Have    | Provide password reset via email.                             |
+| **2. User Profiles**         | Develop View Profile page                   | Must Have    | Users can view their profile details.                         |
+|                              | Develop Edit Profile functionality          | Must Have    | Users can update their profile information (username, email, bio). |
+| **3. Post Management**       | Create Post functionality                   | Must Have    | Users can create new posts with mood selection and anonymity option. |
+|                              | Display Post Feed                           | Must Have    | Show a list of posts in the feed.                             |
+|                              | Implement Edit Post feature                 | Must Have    | Allow users to edit their own posts.                          |
+|                              | Implement Delete Post feature               | Must Have    | Allow users to delete their own posts.                        |
+| **4. Interactive Features**  | Implement Like functionality                | Must Have    | Users can like posts to show appreciation.                     |
+|                              | Implement Comment functionality             | Must Have    | Users can add comments to posts to engage in discussions.      |
+| **5. Responsive Design**     | Ensure responsiveness across devices        | Must Have    | Optimize UI for desktop, tablet, and mobile devices.           |
+| **6. Basic Security Measures**| Implement Input Validation                 | Must Have    | Validate user inputs to prevent malicious data entry.         |
+|                              | Secure data transmission with HTTPS         | Must Have    | Use HTTPS for secure data transfer.                           |
+| **7. Auto Moderation**      | Implement Content Filtering Algorithm       | Must Have    | Develop a simple system to detect trigger words/phrases indicating distress. |
+|                              | Create Basic Trigger Words/Phrases List     | Must Have    | Develop a basic list of trigger words and phrases to monitor.      |
+|                              | Develop Modal with Resources for Flagged Posts | Must Have | Display a modal with mental health resources when a post is flagged. |
+|                              | Hide Flagged Posts from Feed                | Must Have    | Automatically remove or hide posts containing trigger words from the feed. |
+| **8. Anonymity Enhancements**| Enable Anonymous Comments                   | Should Have  | Allow users to comment anonymously.                           |
+|                              | Add Toggle Anonymity option for posts        | Should Have  | Allow users to toggle anonymity for individual posts.          |
+| **9. User Engagement**       | Develop Follow/Unfollow system              | Should Have  | Users can follow or unfollow other users.                     |
+|                              | Implement Notification system              | Should Have  | Notify users when their posts receive likes or comments.      |
+| **10. Post Features**         | Implement Mood Analytics                    | Should Have  | Provide insights into the distribution of moods in posts.     |
+|                              | Develop Search and Filter functionality     | Should Have  | Users can search posts by keywords or filter by mood.          |
+| **11. Enhanced UI/UX**       | Add Dark Mode toggle                        | Should Have  | Provide a toggle between light and dark themes.               |
+|                              | Integrate Animations and Transitions        | Should Have  | Add animations for modals, buttons, and interactions.          |
+| **12. Performance Optimization** | Implement Lazy Loading               | Should Have  | Lazy load images and posts for better performance.             |
+|                              | Add Pagination or Infinite Scroll            | Should Have  | Manage large feeds efficiently with pagination or infinite scroll. |
+| **13. Media Support**        | Enable Image Uploads for posts              | Could Have   | Allow users to attach images to their posts.                   |
+|                              | Allow Avatar Customization                  | Could Have   | Users can upload or choose avatars for profiles.               |
+| **14. Real-Time Features**   | Integrate Live Notifications                | Could Have   | Use WebSockets to notify users in real-time.                   |
+|                              | Implement Real-Time Feed Updates            | Could Have   | New posts, likes, comments update in real-time.                |
+| **15. Advanced Commenting**  | Enable Nested Comments                      | Could Have   | Allow users to reply to specific comments, creating threaded discussions. |
+|                              | Add Like functionality for comments         | Could Have   | Users can like comments.                                      |
+| **16. Analytics Dashboard**  | Provide post performance insights           | Could Have   | Users can view analytics on their posts' performance.          |
+| **17. Accessibility Enhancements** | Ensure WCAG compliance            | Could Have   | Meet accessibility standards for users with disabilities.      |
+|                              | Implement ARIA labels and keyboard navigation | Could Have | Improve accessibility with ARIA and keyboard support.          |
+| **18. Security Enhancements**| Add Two-Factor Authentication (2FA)         | Won't Have   | Implement 2FA for extra security.                              |
+|                              | Integrate OAuth for third-party auth        | Won't Have   | Allow login via Google, Facebook, etc.                         |
+| **19. Monetization Features**| Develop Premium Accounts                    | Won't Have   | Offer premium features for subscribers.                        |
+|                              | Integrate Advertisements                    | Won't Have   | Show ads to generate revenue.                                  |
+| **20. Gamification Elements**| Implement Badges and Achievements           | Won't Have   | Reward users for milestones like number of posts or likes.      |
+|                              | Develop Leaderboards                        | Won't Have   | Show top contributors based on engagement metrics.             |
 
 
 ## Testing

@@ -10,6 +10,16 @@
 ![alt text](home.png)
 View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 
+## Project Objectives
+
+### Primary Goals
+
+- Facilitate Emotional Expression: Provide users with a safe and supportive platform to share their feelings and thoughts.
+- Ensure User Anonymity: Allow users to post anonymously to encourage genuine and honest expression without fear of judgment.
+- Promote Community Engagement: Enable interactions through likes, comments, and follows to build a supportive community.
+- Maintain Data Security and Privacy: Protect user data and ensure secure authentication and authorization processes.
+- Deliver an Intuitive and Responsive UI/UX: Create a user-friendly interface that is accessible across various devices.
+
 ## Table of Contents
 - TODO
 1. [Introduction](#introduction)
@@ -82,6 +92,7 @@ View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 #### Database Schema
 - The database schema diagram illustrates the data model used in the application. It includes the tables, their relationships, and key fields, ensuring data integrity and efficient data management.
 
+TODO - add Following
 - ![alt text](DBML.png)
 
 

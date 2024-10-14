@@ -82,6 +82,9 @@ View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 #### Database Schema
 - The database schema diagram illustrates the data model used in the application. It includes the tables, their relationships, and key fields, ensuring data integrity and efficient data management.
 
+- ![alt text](DBML.png)
+
+
 ## Features
 ### 1. User Authentication
 - **Sign Up and Login**: Users can create an account or log in using modals.
@@ -104,7 +107,6 @@ View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 ### 5. Comment Section
 - **Add Comments**: Users can add comments to any post.
 - **View Comments**: Comments are displayed beneath each post with author and timestamp.
-
 ### 6. Responsive Design
 - **Mobile-Friendly**: The application is optimized for various devices using React Bootstrap.
 - **Accessible UI**: Emphasis on user-friendly interfaces with modals, buttons, and intuitive navigation.

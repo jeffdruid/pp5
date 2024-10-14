@@ -127,27 +127,114 @@ TODO - add Following
 - The MoSCoW method is used to prioritize features based on their importance and urgency. Features are categorized into Must Have, Should Have, Could Have, and Won't Have for the current version of the application.
 
 ### Must Have
-- **User Authentication**: Sign Up and Login functionalities.
-- **Post Creation**: Ability to create, edit, and delete posts.
-- **Post Feed**: Display posts in a responsive feed.
-- **User Profiles**: View and edit profile details.
-- **Like Functionality**: Like posts to show appreciation.
+These are essential features without which the project cannot function effectively.
 
-### Should Have
-- **Comment Section**: Allow users to comment on posts.
-- **Anonymity Option**: Option to post anonymously.
-- **Responsive Design Enhancements**: Further optimization for different devices.
+#### User Authentication
+
+- Sign Up: Allow users to create an account.
+- Login/Logout: Enable users to access and exit their accounts securely.
+- Password Reset: Provide functionality for users to reset forgotten passwords.
+User Profiles
+
+- View Profile: Users can view their profile information.
+- Edit Profile: Users can update their profile details (username, email, bio).
+
+#### Post Management
+
+- Create Post: Users can create new posts with mood selection, content input, and anonymity option.
+- View Posts: Display a feed of posts from all users.
+- Edit Post: Allow users to edit their own posts.
+- Delete Post: Enable users to delete their own posts.
+
+#### Interactive Features
+
+- Like Posts: Users can like posts to show appreciation.
+- Comment on Posts: Users can add comments to posts to engage in discussions.
+
+#### Responsive Design
+
+- Ensure the application is fully responsive and functional on desktops, tablets, and mobile devices.
+
+#### Basic Security Measures
+
+- Input Validation: Validate user inputs to prevent malicious data entry.
+- Secure Data Transmission: Use HTTPS to encrypt data between the client and server.
+Should Have
+- Important features that add significant value but are not critical for the initial launch.
+
+#### Anonymity Enhancements
+
+- Anonymous Comments: Allow users to comment anonymously.
+- Toggle Anonymity: Users can choose to toggle anonymity for individual posts.
+
+#### User Engagement
+
+- Follow System: Allow users to follow/unfollow other users.
+- Notifications: Notify users when their posts receive likes or comments.
+
+#### Post Features
+
+- Mood Analytics: Provide insights into the distribution of moods in posts.
+- Search and Filter: Enable users to search posts by keywords or filter by mood.
+
+##### Enhanced UI/UX
+
+- Dark Mode: Provide a toggle between light and dark themes.
+- Animations and Transitions: Add subtle animations to improve user experience.
+
+#### Performance Optimization
+
+- Lazy Loading: Implement lazy loading for images and posts to enhance performance.
+- Pagination: Add pagination or infinite scroll to manage large feeds efficiently.
 
 ### Could Have
-- **Image Uploads**: Allow users to upload images with their posts.
-- **Notifications**: Notify users of interactions on their posts.
-- **Dark Mode**: Toggle between light and dark themes.
+Desirable features that can further enhance the project but are not essential.
+
+#### Media Support
+
+- Image Uploads: Allow users to upload images with their posts.
+- Avatar Customization: Enable users to upload or choose avatars for their profiles.
+
+#### Real-Time Features
+
+- Live Notifications: Implement real-time notifications using WebSockets or similar technologies.
+- Real-Time Updates: Display new posts, likes, and comments in real-time without page refreshes.
+
+#### Advanced Commenting
+
+- Nested Comments: Allow users to reply to specific comments, creating threaded discussions.
+- Comment Likes: Enable users to like comments.
+
+#### Analytics Dashboard
+
+- Provide users with insights into their activity, such as number of posts, likes received, and comments.
+
+#### Accessibility Enhancements
+
+- Ensure the application meets WCAG standards by implementing ARIA labels and keyboard navigation support.
 
 ### Won't Have (for now)
-- **User Following System**: Ability to follow/unfollow other users.
-- **Real-Time Updates**: Implement real-time feed updates using WebSockets.
-- **Advanced Analytics**: Provide users with insights into their posts' performance.
+Features that are out of scope for the current project phase but can be considered for future iterations.
 
+#### User Following System Enhancements
+
+- Mutual Follows: Implement mutual following logic.
+- Follower Recommendations: Suggest users to follow based on interests or interactions.
+
+#### Advanced Security Measures
+
+- Two-Factor Authentication (2FA): Add an extra layer of security for user accounts.
+- OAuth Integration: Allow users to sign up/login using third-party services like Google or Facebook.
+
+#### Monetization Features
+
+- Premium Accounts: Offer premium features for a subscription fee.
+- Advertisements: Integrate ads to generate revenue.
+
+#### Gamification Elements
+
+- Badges and Achievements: Reward users for milestones like number of posts or likes.
+- Leaderboards: Display top contributors based on engagement metrics.
 
 ## GitHub Projects, Milestones, and Issues
 
@@ -160,7 +247,7 @@ Milestones are used to track the progress of significant phases in our project. 
 ### Issues
 Issues are used to track tasks, enhancements, and bugs for the project. Each issue is assigned to a team member and linked to a milestone.
 
-For more details, visit the [GitHub Project]() page.
+For more details, visit the [GitHub Project](https://github.com/users/jeffdruid/projects/4) page.
 
 
 ## Testing

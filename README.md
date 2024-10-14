@@ -7,7 +7,7 @@
 
 **How Are You Really** is a full-stack web application designed to provide users with a platform to share their feelings, thoughts, and experiences. Inspired by social media platforms, it emphasizes anonymity and genuine expression, allowing users to connect and support each other in a safe environment.
 
-
+![alt text](home.png)
 View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 
 ## Table of Contents

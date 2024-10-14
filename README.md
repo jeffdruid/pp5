@@ -1,13 +1,13 @@
 # [How Are You Really - Full Stack Web Application](https://pp5-jeff-d4728660c25d.herokuapp.com/#home)
 <a href="https://pp5-jeff-d4728660c25d.herokuapp.com/">
-  <img src="banner.webp" alt="Blog banner" width="100%">
+  <img src="README/images/banner.webp" alt="Blog banner" width="100%">
 </a>
 
 ## Introduction
 
 **How Are You Really** is a full-stack web application designed to provide users with a platform to share their feelings, thoughts, and experiences. Inspired by social media platforms, it emphasizes anonymity and genuine expression, allowing users to connect and support each other in a safe environment.
 
-![alt text](home.png)
+![Home Page](README/images/home.png)
 View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 
 ## Project Objectives
@@ -88,12 +88,13 @@ View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 
 #### Site Map
 - The site map visually outlines the structure of the website, showing the relationships between different pages and sections. It provides an overview of how users will navigate through the platform, ensuring an intuitive user experience.
-- ![alt text](site-map.png)
+- ![Site Map](README/images/site-map.png)
+
 #### Database Schema
 - The database schema diagram illustrates the data model used in the application. It includes the tables, their relationships, and key fields, ensuring data integrity and efficient data management.
 
 TODO - add Following
-- ![alt text](DBML.png)
+- ![Database Schema](README/images/DBML.png)
 
 
 ## Features
@@ -246,9 +247,11 @@ GitHub Projects was used to manage and organize tasks. It provides a Kanban-styl
 
 ### Milestones
 Milestones are used to track the progress of significant phases in our project. Each milestone includes a set of issues that need to be completed to achieve the milestone goal.
+- ![GitHub Projects - Milestones](README/images/kanban-milestones.png)
 
 ### Issues
 Issues are used to track tasks, enhancements, and bugs for the project. Each issue is assigned to a team member and linked to a milestone.
+- ![GitHub Projects - Issues](README/images/kanban-issues.png)
 
 For more details, visit the [GitHub Project](https://github.com/users/jeffdruid/projects/4) page.
 
@@ -329,6 +332,20 @@ All testing was done manually and automated using Django's built-in testing fram
 ### Useful Links
 
 ### Tools
+### Tools
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [GitHub](https://github.com)
+- [Heroku](https://www.heroku.com/)
+- [Database Relationship Diagrams Design Tool](https://dbdiagram.io/)
+- [Site Map Design Tool - Balsamiq](https://balsamiq.com/)
+- [W3C HTML Validator](https://validator.w3.org/)
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+- [flake8](https://flake8.pycqa.org/en/latest/)
+- [Jshint](https://jshint.com/)
+- [Django's Built-in Check System](https://docs.djangoproject.com/en/3.2/ref/django-admin/#check)
+- [WAVE - Web Accessibility Evaluation Tool](https://wave.webaim.org/)
+- [LightHouse](https://developers.google.com/web/tools/lighthouse)
+- [CI Python Linter](https://pep8ci.herokuapp.com/)
 
 ### Resources
 - **React Documentation**: [https://reactjs.org/docs/getting-started.html](https://reactjs.org/docs/getting-started.html)

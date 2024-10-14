@@ -1,9 +1,11 @@
-# [Blog - Wellness](https://pp5-jeff-d4728660c25d.herokuapp.com/#home)
+# [Blog - How Are You Really](https://pp5-jeff-d4728660c25d.herokuapp.com/#home)
 <a href="https://pp5-jeff-d4728660c25d.herokuapp.com/">
   <img src="banner.webp" alt="Blog banner" width="100%">
 </a>
 
 ## Introduction
+
+**How Are You Really** is a full-stack web application designed to provide users with a platform to share their feelings, thoughts, and experiences. Inspired by social media platforms, it emphasizes anonymity and genuine expression, allowing users to connect and support each other in a safe environment.
 
 
 View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
@@ -12,19 +14,11 @@ View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 - TODO
 1. [Introduction](#introduction)
 2. [Technologies Used](#technologies-used)
-   - [Django](#django)
-   - [SQLite](#sqlite)
-   - [Bootstrap](#bootstrap)
-   - [jQuery](#jquery)
-   - [Font Awesome](#font-awesome)
-   - [Heroku](#heroku)
 3. [User Stories](#user-stories)
-   - [User Story 1: User Authentication](#user-story-1-user-authentication)
 4. [Wireframes](#wireframes)
    - [Site Map](#site-map)
    - [Database Schema](#database-schema)
 5. [Features](#features)
-   - [User Authentication](#user-authentication)
 6. [MoSCoW Prioritization](#moscow-prioritization)
    - [Must Have](#must-have)
    - [Should Have](#should-have)
@@ -57,6 +51,11 @@ View the live project [here](https://pp5-jeff-d4728660c25d.herokuapp.com/)
 14. [License](#license)
 
 ## Technologies Used
+ - [React](https://reactjs.org/)
+  - [React Bootstrap](https://react-bootstrap.github.io/)
+  - [React Icons](https://react-icons.github.io/react-icons/)
+  - [date-fns](https://date-fns.org/) for date formatting
+
 
 ## Wireframes:
 
@@ -113,6 +112,12 @@ All testing was done manually and automated using Django's built-in testing fram
 ### Tools
 
 ### Resources
+- **React Documentation**: [https://reactjs.org/docs/getting-started.html](https://reactjs.org/docs/getting-started.html)
+- **React Bootstrap Documentation**: [https://react-bootstrap.github.io/](https://react-bootstrap.github.io/)
+- **Django REST Framework**: [https://www.django-rest-framework.org/](https://www.django-rest-framework.org/)
+- **JWT Authentication Guide**: [https://jwt.io/introduction/](https://jwt.io/introduction/)
+- **Testing in React**: [https://reactjs.org/docs/testing.html](https://reactjs.org/docs/testing.html)
+
 
 ### License
 - This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

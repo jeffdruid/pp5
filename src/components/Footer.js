@@ -20,7 +20,7 @@ function Footer() {
 
   return (
     <>
-      <Navbar bg="light" variant="light" className="justify-content-center">
+      <Navbar bg="light" variant="light" className="justify-content-center" fixed="bottom">
         <Nav>
           <Nav.Link href="#" onClick={() => openModal('about')}>
             About

@@ -93,8 +93,10 @@ function Header() {
               ) : (
                 // User is not logged in
                 <>
-                  <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/login"><i className="fas fa-sign-in-alt ms-1"></i> Login</NavLink>
-                  <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/signup"><i className="fas fa-user-plus ms-1"></i>Sign up</NavLink>
+                  <Nav className="ml-auto text-center">
+                    <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/login"><i className="fas fa-sign-in-alt ms-1"></i> Login</NavLink>
+                    <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/signup"><i className="fas fa-user-plus ms-1"></i>Sign up</NavLink>
+                  </Nav>
                   <Button variant="primary" className="me-2" onClick={() => openAuthModal('login')}>
                     Login
                     <i className="fas fa-sign-in-alt ms-1"></i>

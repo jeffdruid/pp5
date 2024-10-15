@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import Header from './components/Header';
 import WelcomeMessage from './components/WelcomeMessage';
 import PostFeed from './components/PostFeed';
@@ -11,9 +11,38 @@ import {Route, Switch} from 'react-router-dom';
 import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm'
+import axios from 'axios';
 
+export const CurrentUserContext = createContext();
+export const SetCurrentUserContext = createContext();
 
 function App() {
+  // State to hold the current user
+  const [currentUser, setCurrentUser] = useState(null);
+  const handleMount = async () => {
+    try {
+      const token = localStorage.getItem('access_token');  // Get the token
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,  // Send the token in the request header
+        },
+        withCredentials: true,  // If you're using cookies for auth
+      };
+      const { data } = await axios.get('/dj-rest-auth/user/', config);  // Include token in request
+      setCurrentUser(data);  // Set user data in context
+    } catch (error) {
+      console.error('Error fetching user:', error);
+    }
+  };
+  
+
+  useEffect(() => {
+    handleMount();
+  }, []);
+
+
+
+
   // State to control PostModal visibility
   const [showPostModal, setShowPostModal] = useState(false);
 
@@ -74,43 +103,47 @@ function App() {
   // ... Authentication functions (handleLogin, handleLogout, etc.)
 
   return (
-    <>
-      <div className={styles.App}>
-        <Header
-          isLoggedIn={isLoggedIn}
-          // ... other props
-        />
-        <Container className={styles.Main}>
-          <Switch>
-            <Route path="/" exact render={() => <h1>Home Page</h1>} />
-            <Route path="/login" exact render={() => <SignInForm />} />
-            <Route path="/signin" exact render={() => <h1>Account Created successfully</h1>} />
-            <Route path="/loggedin" exact render={() => <h1>User Logged in successfully</h1>} />
-            <Route path="/signup" exact render={() => <SignUpForm />} />
-            <Route render={() => <>404: Page Not Found!</>} />
-          </Switch>
-        </Container>
-        <WelcomeMessage onCreatePost={handleCreatePost} />
-        <PostFeed
-          posts={posts}
-          setPosts={setPosts}
-          handleEditPost={handleEditPost} // Pass the function to PostFeed
-        />
-        <Footer />
+    <CurrentUserContext.Provider value={currentUser}>
+      <SetCurrentUserContext.Provider value={setCurrentUser}>
+      <>
+        <div className={styles.App}>
+          <Header
+            isLoggedIn={isLoggedIn}
+            // ... other props
+          />
+          <Container className={styles.Main}>
+            <Switch>
+              <Route path="/" exact render={() => <h1>Home Page</h1>} />
+              <Route path="/login" exact render={() => <SignInForm />} />
+              <Route path="/signin" exact render={() => <SignInForm />} />
+              <Route path="/loggedin" exact render={() => <h1>User Logged in successfully</h1>} />
+              <Route path="/signup" exact render={() => <SignUpForm />} />
+              <Route render={() => <>404: Page Not Found!</>} />
+            </Switch>
+          </Container>
+          <WelcomeMessage onCreatePost={handleCreatePost} />
+          <PostFeed
+            posts={posts}
+            setPosts={setPosts}
+            handleEditPost={handleEditPost} // Pass the function to PostFeed
+          />
+          <Footer />
 
-        {/* Render PostModal */}
-        <PostModal
-          show={showPostModal}
-          onClose={handleClosePostModal}
-          addPost={addPost}
-          updatePost={updatePost}
-          userData={userData}
-          postToEdit={postToEdit} // Pass the post to edit
-        />
+          {/* Render PostModal */}
+          <PostModal
+            show={showPostModal}
+            onClose={handleClosePostModal}
+            addPost={addPost}
+            updatePost={updatePost}
+            userData={userData}
+            postToEdit={postToEdit} // Pass the post to edit
+          />
 
-        {/* Render AuthModal if needed */}
-      </div>
-    </>
+          {/* Render AuthModal if needed */}
+        </div>
+      </>
+      </SetCurrentUserContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -12,8 +12,11 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { SetCurrentUserContext } from "../../App";
 
 function SignInForm() {
+  const setCurrentUser = useContext(SetCurrentUserContext);
+
   // State for form data
   const [signInData, setSignInData] = useState({
     username: "",
@@ -29,21 +32,28 @@ function SignInForm() {
 
   // Handle form submission
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      // Clear any previous errors
-      setErrors({});
+  event.preventDefault();
+  try {
+    // Clear any previous errors
+    setErrors({});
 
-      // Make POST request to login endpoint
-      await axios.post("/dj-rest-auth/login/", signInData);
+    // Make POST request to login endpoint
+    const { data } = await axios.post("/dj-rest-auth/login/", signInData);
 
-      // Redirect to the homepage after successful login
-      history.push("/");
-    } catch (err) {
-      // Set errors returned from the API to the errors state
-      setErrors(err.response?.data || {});
-    }
-  };
+    // Store access token in localStorage or cookies (depending on your setup)
+    localStorage.setItem('access_token', data.access_token);
+
+    // Set the current user in context
+    setCurrentUser(data.user);
+
+    // Redirect to the homepage after successful login
+    history.push("/");
+  } catch (err) {
+    // Set errors returned from the API to the errors state
+    setErrors(err.response?.data || {});
+  }
+};
+
 
   // Handle form input changes
   const handleChange = (event) => {

@@ -4,6 +4,7 @@ import { FaHeart, FaUserCircle } from 'react-icons/fa';
 import AuthModal from './AuthModal';
 import UserProfileModal from './UserProfileModal';
 import logo from '../assets/logo.webp';
+import styles from '../styles/Header.module.css';
 
 function Header() {
   // State variables for modal visibility and type
@@ -58,7 +59,7 @@ function Header() {
 
   return (
     <>
-      <Navbar bg="light" expand="md" fixed="top">
+      <Navbar className={styles.Header} bg="light" expand="md" fixed="top">
         <Container>
           <Navbar.Brand>
             {/* <img src={logo} alt="How Are You Really" width="45" height="45" className="me-2" /> */}

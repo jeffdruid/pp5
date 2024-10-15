@@ -5,7 +5,7 @@ import PostFeed from './components/PostFeed';
 import Footer from './components/Footer';
 import PostModal from './components/PostModal';
 import AuthModal from './components/AuthModal';
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   // State to control PostModal visibility
@@ -69,29 +69,31 @@ function App() {
 
   return (
     <>
-      <Header
-        isLoggedIn={isLoggedIn}
-        // ... other props
-      />
-      <WelcomeMessage onCreatePost={handleCreatePost} />
-      <PostFeed
-        posts={posts}
-        setPosts={setPosts}
-        handleEditPost={handleEditPost} // Pass the function to PostFeed
-      />
-      <Footer />
+      <div className={styles.App}>
+        <Header
+          isLoggedIn={isLoggedIn}
+          // ... other props
+        />
+        <WelcomeMessage onCreatePost={handleCreatePost} />
+        <PostFeed
+          posts={posts}
+          setPosts={setPosts}
+          handleEditPost={handleEditPost} // Pass the function to PostFeed
+        />
+        <Footer />
 
-      {/* Render PostModal */}
-      <PostModal
-        show={showPostModal}
-        onClose={handleClosePostModal}
-        addPost={addPost}
-        updatePost={updatePost}
-        userData={userData}
-        postToEdit={postToEdit} // Pass the post to edit
-      />
+        {/* Render PostModal */}
+        <PostModal
+          show={showPostModal}
+          onClose={handleClosePostModal}
+          addPost={addPost}
+          updatePost={updatePost}
+          userData={userData}
+          postToEdit={postToEdit} // Pass the post to edit
+        />
 
-      {/* Render AuthModal if needed */}
+        {/* Render AuthModal if needed */}
+      </div>
     </>
   );
 }

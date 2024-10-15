@@ -6,6 +6,9 @@ import Footer from './components/Footer';
 import PostModal from './components/PostModal';
 import AuthModal from './components/AuthModal';
 import styles from './App.module.css';
+import Container from 'react-bootstrap/Container';
+import {Route, Switch} from 'react-router-dom';
+
 
 function App() {
   // State to control PostModal visibility
@@ -74,6 +77,14 @@ function App() {
           isLoggedIn={isLoggedIn}
           // ... other props
         />
+        <Container className={styles.Main}>
+          <Switch>
+            <Route path="/" exact render={() => <h1>Home Page</h1>} />
+            <Route path="/login" exact render={() => <h1>Login</h1>} />
+            <Route path="/signup" exact render={() => <h1>Sign Up</h1>} />
+            <Route render={() => <>404: Page Not Found!</>} />
+          </Switch>
+        </Container>
         <WelcomeMessage onCreatePost={handleCreatePost} />
         <PostFeed
           posts={posts}

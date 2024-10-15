@@ -5,6 +5,7 @@ import AuthModal from './AuthModal';
 import UserProfileModal from './UserProfileModal';
 import logo from '../assets/logo.webp';
 import styles from '../styles/Header.module.css';
+import {NavLink} from 'react-router-dom';
 
 function Header() {
   // State variables for modal visibility and type
@@ -61,12 +62,14 @@ function Header() {
     <>
       <Navbar className={styles.Header} bg="light" expand="md" fixed="top">
         <Container>
+          <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">
           <Navbar.Brand>
             {/* <img src={logo} alt="How Are You Really" width="45" height="45" className="me-2" /> */}
             <FaHeart className="me-2 text-danger" />
             How Are You Really
-            <i className="fas fa-question ms-2"></i>
+            {/* <i className="fas fa-question ms-2"></i> */}
           </Navbar.Brand>
+          </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
@@ -90,6 +93,8 @@ function Header() {
               ) : (
                 // User is not logged in
                 <>
+                  <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/login"><i className="fas fa-sign-in-alt ms-1"></i> Login</NavLink>
+                  <NavLink className={styles.NavLink} activeClassName={styles.Active} exact to="/signup"><i className="fas fa-user-plus ms-1"></i>Sign up</NavLink>
                   <Button variant="primary" className="me-2" onClick={() => openAuthModal('login')}>
                     Login
                     <i className="fas fa-sign-in-alt ms-1"></i>

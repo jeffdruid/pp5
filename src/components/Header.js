@@ -3,6 +3,7 @@ import { Navbar, Nav, Button, Container, NavDropdown } from 'react-bootstrap';
 import { FaHeart, FaUserCircle } from 'react-icons/fa';
 import AuthModal from './AuthModal';
 import UserProfileModal from './UserProfileModal';
+import logo from '../assets/logo.webp';
 
 function Header() {
   // State variables for modal visibility and type
@@ -57,11 +58,13 @@ function Header() {
 
   return (
     <>
-      <Navbar bg="light" expand="md">
+      <Navbar bg="light" expand="md" fixed="top">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
+            {/* <img src={logo} alt="How Are You Really" width="45" height="45" className="me-2" /> */}
             <FaHeart className="me-2 text-danger" />
             How Are You Really
+            <i className="fas fa-question ms-2"></i>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -88,9 +91,11 @@ function Header() {
                 <>
                   <Button variant="primary" className="me-2" onClick={() => openAuthModal('login')}>
                     Login
+                    <i className="fas fa-sign-in-alt ms-1"></i>
                   </Button>
                   <Button variant="outline-primary" onClick={() => openAuthModal('signup')}>
                     Sign Up
+                    <i className="fas fa-user-plus ms-1"></i>
                   </Button>
                 </>
               )}

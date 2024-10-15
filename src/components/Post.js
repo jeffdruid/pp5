@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import WelcomeMessage from './components/WelcomeMessage';
-import PostFeed from './components/PostFeed';
-import Footer from './components/Footer';
-import PostModal from './components/PostModal';
-import AuthModal from './components/AuthModal';
-import './App.css';
+import Header from './Header';
+import WelcomeMessage from './WelcomeMessage';
+import PostFeed from './PostFeed';
+import Footer from './Footer';
+import PostModal from './PostModal';
+import AuthModal from './AuthModal';
+import '../App.css';
 
 function App() {
   // State to control PostModal visibility

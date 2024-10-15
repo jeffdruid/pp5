@@ -83,6 +83,7 @@ function App() {
           <Switch>
             <Route path="/" exact render={() => <h1>Home Page</h1>} />
             <Route path="/login" exact render={() => <h1>Login</h1>} />
+            <Route path="/signin" exact render={() => <h1>Account Created successfully</h1>} />
             <Route path="/signup" exact render={() => <SignUpForm />} />
             <Route render={() => <>404: Page Not Found!</>} />
           </Switch>

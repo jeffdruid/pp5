@@ -15,12 +15,21 @@ export const CurrentUserProvider = ({ children }) => {
 
   const handleMount = async () => {
     try {
-      const { data } = await axiosRes.get("dj-rest-auth/user/");
+      const token = localStorage.getItem('access_token');  // Ensure the token is being fetched
+      console.log("Access token:", token);
+  
+      const { data } = await axiosRes.get("dj-rest-auth/user/", {
+        headers: {
+          Authorization: `Bearer ${token}`,  // Send the access token in the header
+        },
+      });
+      console.log("User data retrieved successfully:", data);
       setCurrentUser(data);
     } catch (err) {
-      console.log(err);
+      console.error("Error fetching user:", err);
     }
   };
+  
 
   useEffect(() => {
     handleMount();

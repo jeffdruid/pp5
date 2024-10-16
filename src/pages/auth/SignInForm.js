@@ -28,18 +28,36 @@ function SignInForm() {
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      // Make the request to the login endpoint
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
-       // Store access and refresh tokens in localStorage
-      localStorage.setItem('access_token', data.access_token);  // Replace 'access_token' with the actual key from the login response
-      localStorage.setItem('refresh_token', data.refresh_token);  // Store refresh token
+      console.log("Login response data:", data);
 
+      // If you get 'access_token' and 'refresh_token', store them:
+      if (data.access_token && data.refresh_token) {
+        localStorage.setItem('access_token', data.access_token);  
+        localStorage.setItem('refresh_token', data.refresh_token);  
+        setCurrentUser(data.user);
+      } else {
+        console.error("Login did not return expected tokens. Check backend response.");
+      }
+      // Log tokens for debugging purposes
+      console.log("Access token stored:", data.access_token);
+      console.log("Refresh token stored:", data.refresh_token);
+
+      // Set current user context
       setCurrentUser(data.user);
+      console.log("User logged in:", data.user);
+
+      // Provide user feedback and redirect
       history.push("/");
+      alert("Login successful! Redirecting to home page.");
     } catch (err) {
+      console.error("Login error:", err.response?.data);
       setErrors(err.response?.data);
     }
   };
@@ -55,7 +73,7 @@ function SignInForm() {
     <Row className={styles.Row}>
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign in</h1>
+          <h1 className={styles.Header}>Sign in</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>

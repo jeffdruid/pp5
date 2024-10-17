@@ -15,9 +15,11 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
+  useRedirect("loggedIn");
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -28,31 +30,17 @@ function SignInForm() {
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
-      // Make the request to the login endpoint
-      const { data } = await axios.post("/dj-rest-auth/login/", signInData, {
-        withCredentials: true,  // Ensure cookies (session) are included
-      });
-      
-      console.log("Login response data:", data);
-      
-      if (data.key) {
-        console.log("User logged in:", data.key);
-        setCurrentUser(data); // The key can be used if needed, but session is managed by cookies
-        history.push("/"); // Redirect to the home page after login
-      } else {
-        console.error("Login response did not include session key.");
-      }
+      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
+      history.goBack();
     } catch (err) {
-      console.error("Login error:", err.response?.data);
       setErrors(err.response?.data);
     }
   };
-  
 
   const handleChange = (event) => {
     setSignInData({
@@ -65,7 +53,7 @@ function SignInForm() {
     <Row className={styles.Row}>
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>Sign in</h1>
+          <h1 className={styles.Header}>sign in</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>

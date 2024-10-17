@@ -23,7 +23,6 @@
   "engines": {
     "node": "18.x"
   },
-  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -31,14 +30,13 @@
     "heroku-postbuild": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-     "set-openssl-legacy": "export NODE_OPTIONS=--openssl-legacy-provider"
+    "set-openssl-legacy": "export NODE_OPTIONS=--openssl-legacy-provider"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-      
-    ], "type": "commonjs"
+    ]
   },
   "browserslist": {
     "production": [
@@ -53,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "msw": "^2.4.11"
   }
 }
